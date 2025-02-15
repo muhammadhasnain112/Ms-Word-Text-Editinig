@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#textarea {
+
+    outline: none;
+    /* width: 97%; */
+    /* color: #be5b5b; */
+    font-size: 30px;
+    padding: 20px;
+    /* font-weight: ; */
+    /* border: 1px solid black;  */
+    height: 78vh;
+    background-color: rgb(12, 149, 103);
+}
+
+input,button {
+    height: 5vh;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: rgb(12, 149, 103);
+    width: 10vw;
+}
+
+#first {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    background-color: rgb(16, 95, 95);
+    /* border: 1px solid black; */
+}
