@@ -1,44 +1,86 @@
+    document.addEventListener('keydown', function (event) {
+    let keys = event.key
+    if (text.innerText == "lorem" && keys == "Enter") {
+        text.innerHTML = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat maiores maxime illum incidunt, non fuga sunt nihil accusamus ad! Autem omnis natus, doloremque laborum architecto cumque odio perspiciatis. Perspiciatis, quis.`
+    }
+})
 let bold = document.getElementById('bold')
 let color = document.getElementById('color')
 let italic = document.getElementById('italic')
 let text = document.getElementById('textarea')
+let under = document.getElementById('under')
 let size = document.getElementById('fontSize')
 let upper = document.getElementById('upper')
 let lower = document.getElementById('lower')
+let select = window.getSelection();
 
-color.addEventListener('click', () => {
-    let select = window.getSelection().toString();
-    color.addEventListener('change', () => {
-        let newt = `<span style="color:${color.value};">${select}</span>`// select.
-        let full = text.innerText;
-        text.innerHTML = full.replace(select, newt)
-    })
+
+color.addEventListener('input',()=>{
+
+    backRGB = color.value;
+    if (!select.isCollapsed) {
+        let range = select.getRangeAt(0);
+        let span = document.createElement('span');
+        span.style.color = backRGB;
+        range.surroundContents(span);
+    }
 })
+
 bold.addEventListener('click', () => {
-    document.execCommand('bold', false, null)
+
+    // let select = window.getSelection();
+    if (!select.isCollapsed) {
+        let range = select.getRangeAt(0);
+        let b = document.createElement('b')
+        range.surroundContents(b)
+    }
 })
 italic.addEventListener('click', () => {
-    document.execCommand('italic', false, null)
+    if (!select.isCollapsed) {
+        let range = select.getRangeAt(0);
+        let i = document.createElement('i')
+        range.surroundContents(i)
+    }
 })
-function changeFontSize(sizeChange) {
-    document.execCommand('fontSize', false, sizeChange);
-}
-
-upper.addEventListener('click', () => {
-
-    document.execCommand("insertHTML", false, window.getSelection().toString().toUpperCase());
-
+// function changeFontSize(sizeChange) {
+let drop = document.getElementById('size')
+drop.addEventListener('click', function () {
+    // let select = window.getSelection();
+    drop.addEventListener('change', () => {
+        if (!select.isCollapsed) {
+            let range = select.getRangeAt(0);
+            let span = document.createElement('span')
+            span.style.fontSize = `${drop.value}px`
+            range.surroundContents(span)
+        }
+    })
 })
-lower.addEventListener('click', () => {
-
-    document.execCommand("insertHTML", false, window.getSelection().toString().toLowerCase());
+upper.addEventListener('click', function () {
+    // let select = window.getSelection();
+    if (!select.isCollapsed) {
+        let range = select.getRangeAt(0);
+        let span = document.createElement('span')
+        span.style.textTransform = uppercase
+        range.surroundContents(span)
+    }
+})
+lower.addEventListener('click', function () {
+    // let select = window.getSelection();
+    if (!select.isCollapsed) {
+        let range = select.getRangeAt(0);
+        let span = document.createElement('span')
+        span.style.textTransform = lowercase
+        range.surroundContents(span)
+    }
 })
 
-
-document.addEventListener('keydown', (event) => {
-    let keys = event.key
-    if (text.innerText == "lorem" && keys == "Enter") {
-        text.innerHTML = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat maiores maxime illum incidunt, non fuga sunt nihil accusamus ad! Autem omnis natus, doloremque laborum architecto cumque odio perspiciatis. Perspiciatis, quis.`
+under.addEventListener('click', function () {
+    // let select = window.getSelection();
+    if (!select.isCollapsed) {
+        let range = select.getRangeAt(0);
+        let span = document.createElement('span')
+        span.style.textDecoration = underline
+        range.surroundContents(span)
     }
 })
 

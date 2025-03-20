@@ -7,24 +7,29 @@
     <title>Text Bold&etc</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="first"> 
+    <div id="first">
 
-    <button id="bold">Bold</button><button id="italic">Italic</button>
-    <input type="color" id="color">
-    <button onclick="changeFontSize(10)">+</button>
-    <button onclick="changeFontSize(-1)">-</button>
-    <!-- <button id="fontSize">Font Size</button> -->
-    <button id="upper">UpperCase</button>
-    <button id="lower">LowerCase</button>
-</div>
-    <!-- <br> -->
-     <!-- <div> -->
-
-         <p contenteditable="true" id="textarea"></p>
-        <!-- </div> -->
-         <script src="app.js"></script>
+        <button id="bold">Bold</button><button id="italic">Italic</button>
+        <input type="color" id="color">
+        <select name="" id="size">
+            <option value="" selected disabled>0</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="60">60</option>
+            <option value="70">70</option>
+            <option value="80">80</option>
+        </select>
+        <button id="under">UnderLine</button>
+        <!-- <button id="fontSize">Font Size</button> -->
+        <button id="upper">UpperCase</button>
+        <button id="lower">LowerCase</button>
+    </div>
+    <p contenteditable="true" id="textarea"></p>
+    <script src="app.js"></script>
 </body>
 
 </html>
